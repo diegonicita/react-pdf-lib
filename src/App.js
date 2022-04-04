@@ -45,7 +45,11 @@ if (isLoading)
     console.log("Fetching")
     const myFetch2 = async () => 
     {
-      const temp = await fetch('https://diego-test-server.herokuapp.com/bacterio');
+      const temp = await fetch('https://diego-test-server.herokuapp.com/bacterio', {
+        'mode': 'cors',
+        'headers': {
+            'Access-Control-Allow-Origin': '*',
+        }});
       const existingPdfBytes = await temp.arrayBuffer();
       console.log(existingPdfBytes);
       const pdfDoc = await PDFDocument.load(existingPdfBytes);
