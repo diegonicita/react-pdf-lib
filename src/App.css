@@ -24,6 +24,9 @@
   color: black;
 }
 
+.maintxt {position: relative;}
+.maintxt > img, .overlay-text {position: absolute;}
+
 .App-link {
   color: #61dafb;
 }
