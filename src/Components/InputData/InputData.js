@@ -4,7 +4,7 @@ const InputData = ({ filiatorios, dispatch }) => {
       <h1> Proyecto React/Pdf-lib </h1>
       <textarea
         rows="10"
-        cols="50"
+        cols="75"
         onChange={(e) =>
           dispatch({
             type: "change",
