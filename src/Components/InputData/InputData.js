@@ -1,7 +1,7 @@
 const InputData = ({ filiatorios, dispatch }) => {
   return (
     <div className="container-fluid text-left">
-      <h1> Proyecto React/Pdf-lib </h1>
+      <h2> Ingresa los datos del paciente: </h2>
       <textarea
         rows="10"
         cols="75"

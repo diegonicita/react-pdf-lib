@@ -18,7 +18,7 @@ const Autotexto = ({ split }) => {
           alt="fondo historia clinica"
         />
         <div className="overlay-text container text-left">
-          <h2> Sala 32 </h2>
+          <h2> Vista previa: </h2>
           <div>{objData.cama}</div>
           <div> Nombre: {objData.nombre}</div>
           <div> DNI: {objData.dni}</div>
