@@ -12,7 +12,7 @@ const Autotexto = ({ split }) => {
   return (
     <>      
         <div className="container-fluid text-left bg-seconday d-100">
-          <h2> Vista previa: </h2>
+          <h4> Vista previa: </h4>
           <div>{objData.cama}</div>
           <div> Nombre: {objData.nombre}</div>
           <div> DNI: {objData.dni}</div>

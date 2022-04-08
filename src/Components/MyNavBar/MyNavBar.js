@@ -9,7 +9,7 @@ function MyNavbar({ saveUserEmail, saveApiToken }) {
 
   return (
   <>
-  <Navbar bg="success" expand="sm" variant="dark">
+  <Navbar bg="success" expand="md" variant="dark">
   <Container fluid>
     <Navbar.Brand href="/">Protocolos Muñiz</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
