@@ -1,10 +1,10 @@
 const InputData = ({ filiatorios, dispatch }) => {
   return (
-    <div className="container-fluid text-left">
+    <>
       <h2> Ingresa los datos del paciente: </h2>
       <textarea
         rows="10"
-        cols="75"
+        className="form-control"
         onChange={(e) =>
           dispatch({
             type: "change",
@@ -13,7 +13,7 @@ const InputData = ({ filiatorios, dispatch }) => {
         }
         value={filiatorios}
       ></textarea>
-    </div>
+  </>
   );
 };
 

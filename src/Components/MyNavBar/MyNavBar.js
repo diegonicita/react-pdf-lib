@@ -9,8 +9,8 @@ function MyNavbar({ saveUserEmail, saveApiToken }) {
 
   return (
   <>
-  <Navbar bg="primary" expand="sm" variant="dark">
-  <Container>
+  <Navbar bg="success" expand="sm" variant="dark">
+  <Container fluid>
     <Navbar.Brand href="/">Protocolos Muñiz</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">

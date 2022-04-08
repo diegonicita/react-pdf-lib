@@ -7,7 +7,8 @@ import InputData from "./Components/InputData/InputData";
 import reducer from "./Components/Reducers/SplitDataReducer";
 import loadPDF from "./Components/PDFHelper/PDFHelper";
 import MyNavbar from "./Components/MyNavBar/MyNavBar";
-import { Nav } from "react-bootstrap";
+import Botonera from "./Components/Botonera/Botonera";
+import imagen from "./spinner.gif";
 
 function App() {
   // filiatorios => valor del textarea
@@ -21,8 +22,11 @@ function App() {
   useEffect(() => {
     if (isLoading) {
       const myFetch = async () => await loadPDF(studyId, fSplit);
-      myFetch();
-      setIsLoading(false);
+      myFetch().then( ()=> {
+        setTimeout(() => {
+          setIsLoading(false);    
+        }, 1000);      
+        });
     }
   }, [isLoading]);
 
@@ -35,19 +39,25 @@ function App() {
   };
 
   return (
-    <div className="container-fluid">      
+    <>
+      <div className="row">
       <MyNavbar />
-      <InputData filiatorios={filiatorios} dispatch={dispatch} />
-      <div className="container-fluid text-left pb-2">
-        <button className="btn btn-primary m-1" onClick={() => downloadFile(0)}>Bacteriologia</button>
-        <button className="btn btn-primary m-1" onClick={() => downloadFile(1)}>Virologia</button>
-        <button className="btn btn-primary m-1" onClick={() => downloadFile(2)}>TBC</button>
-        <button className="btn btn-primary m-1" onClick={() => downloadFile(3)}>Bioquimica</button>
-        <button className="btn btn-primary m-1" onClick={() => downloadFile(4)}>Micologia</button>
-        <button className="btn btn-primary m-1" onClick={() => downloadFile(5)}>Parasitologia</button>
+      </div>      
+      <div className="row p-2">
+        <div className="col col-md-12">
+          <InputData filiatorios={filiatorios} dispatch={dispatch} />
+        </div>
       </div>
-      <Autotexto split={fSplit} />
-    </div>
+      <div>
+        <Botonera downloadFile={downloadFile}/>
+        <div className={isLoading?"text-center":"text-center d-none"}>
+          <img width="45px" src={imagen} alt="imagen descargando"></img>
+        </div>
+      </div>
+      <div className="row p-2">
+        <Autotexto split={fSplit} />
+      </div>
+    </>
   );
 }
 

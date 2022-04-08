@@ -10,14 +10,8 @@ const Autotexto = ({ split }) => {
     duracion: split && split[7] ? split[7] : "",
   };
   return (
-    <>
-      <div className="maintxt">
-        <img
-          src="/historia clinica.png"
-          className="image-responsive img-fluid rounded mx-auto d-block"
-          alt="fondo historia clinica"
-        />
-        <div className="overlay-text container text-left">
+    <>      
+        <div className="container-fluid text-left bg-seconday d-100">
           <h2> Vista previa: </h2>
           <div>{objData.cama}</div>
           <div> Nombre: {objData.nombre}</div>
@@ -27,8 +21,7 @@ const Autotexto = ({ split }) => {
           <div> Antecedentes: {objData.antecedentes}</div>
           <div> Consulta por: {objData.sintomas}</div>
           <div> Duracion: {objData.duracion}</div>
-        </div>
-      </div>
+        </div>      
     </>
   );
 };
