@@ -59,6 +59,15 @@ const ep = [
   apellido: {x: 145, y: 650, s:27},
   fn: {x: 165,y: 625, s: 28},
   dni: {x: 339, y: 625, s:31},
+},
+{
+  url : BASE_END_POINT + "bioquimica",
+  sala: {x: 375, y:707, s:8},
+  cama: {x: 505, y:707, s:8},
+  nombre: {x: 145, y: 681, s:27},
+  apellido: {x: 145, y: 668, s:27},
+  fn: {x: 150,y: 643, s: 25},
+  dni: {x: 290, y: 643, s:26},
 }
 ]
 
@@ -68,6 +77,11 @@ const insertarTexto = (page, texto, pos) => {
     page.moveTo(pos.x + index * pos.s, pos.y);
     page.drawText(item, { size: 12 });
   });
+};
+
+const insertarCruz = (page, x, y) => { 
+    page.moveTo(242 + x * 10, 569 + y * 11.5);
+    page.drawText("X", { size: 12 });  
 };
 
 const insertarTextoDividido = (page, texto, pos, charSplitter) => {  
@@ -89,16 +103,39 @@ const loadPDF = async (studyId, fSplit, sala) =>
     const firstPage = pages[0]; 
     firstPage.setFont(helveticaFont);  
 
-    // Bacterilogia //
+    if (studyId != 6)
+    {
     insertarTexto(firstPage, sala, ep[studyId].sala);
     const splitCama = fSplit[0].split(" ");
     insertarTexto(firstPage, splitCama[1], ep[studyId].cama);
+    }
     const splitNameApellido = fSplit[1].split(" ");
     insertarTexto(firstPage, splitNameApellido[0], ep[studyId].nombre);
     insertarTexto(firstPage, splitNameApellido[1], ep[studyId].apellido);
     insertarTextoDividido(firstPage, fSplit[3], ep[studyId].fn, "-");
     insertarTexto(firstPage, fSplit[2], ep[studyId].dni);
     // Draw a string of text diagonally
+
+    if (studyId == 6)
+    {
+    insertarCruz(firstPage, 0, 12);
+    insertarTexto(firstPage, "OMS-B24", {x: 222, y: 569 + 12*3 , s: 10})
+    insertarCruz(firstPage, 0, 0);
+    insertarCruz(firstPage, 0, -1);
+    insertarCruz(firstPage, 0, -3);
+    insertarCruz(firstPage, 0, -4);
+    insertarCruz(firstPage, 0, -5);
+    insertarCruz(firstPage, 0, -7);
+    insertarCruz(firstPage, 0, -8);
+    insertarCruz(firstPage, 0, -10);
+    insertarCruz(firstPage, 0, -24);
+    insertarCruz(firstPage, 0, -25);
+    insertarCruz(firstPage, 0, -26);
+    insertarCruz(firstPage, 0, -32);
+    insertarCruz(firstPage, 26.5, 0);
+    insertarCruz(firstPage, 26.5, -13);
+    insertarCruz(firstPage, 26.5, -18);
+    }
 
     const data = await pdfDoc.save();    
     await setTimeout(() => {

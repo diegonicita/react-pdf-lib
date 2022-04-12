@@ -11,10 +11,16 @@ import MyNavbar from "./Components/MyNavBar/MyNavBar";
 import Botonera from "./Components/Botonera/Botonera";
 import imagen from "./spinner.gif";
 
+const initialValues = { 
+  filiatorios: "Cama 1\nJuan Perez\n2233445\n11-22-33\n45\nEPOC\nDisnea\n7 dias", 
+  sala: "32",   
+  }
+initialValues.fSplit = initialValues.filiatorios.split("\n");
+
 function App() {
   // filiatorios => valor del textarea
   // fSplit => (valor del textarea).split("\n")
-  const [{ filiatorios, sala, fSplit }, dispatch] = useReducer(reducer, { filiatorios: "Cama 1", sala: "32", fSplit: ["Cama 1"] });
+  const [{ filiatorios, sala, fSplit }, dispatch] = useReducer(reducer, initialValues);
 
   // isLoading => flag durante el fetching de los archivos PDF del servidor
   const [isLoading, setIsLoading] = useState(false);

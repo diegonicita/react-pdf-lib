@@ -1,6 +1,6 @@
 const Boton = ({downloadFile, id}) =>
 {
-    const textos = ["Bacteriologia", "Virologia", "TBC", "Bioquimica", "Micologia", "Parasitologia"]
+    const textos = ["Bacteriologia", "Virologia", "TBC", "Bioquimica", "Micologia", "Parasitologia", "Bioquimica-X"]
 
     return (
         <>
@@ -13,7 +13,7 @@ const Boton = ({downloadFile, id}) =>
 
 const Botonera = ({downloadFile}) => {
 
-    const idsRow1 = [0,1,2,3,4,5];    
+    const idsRow1 = [0,1,2,3,4,5,6];    
 
     return (
     <div className="row text-center">        

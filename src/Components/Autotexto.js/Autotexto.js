@@ -13,15 +13,16 @@ const Autotexto = ({ split, sala }) => {
     <>      
         <div className="container-fluid text-left bg-seconday d-100">
           <h4> Vista previa: </h4>
-          <div>Sala: {sala}</div>
-          <div>{objData.cama}</div>
-          <div> Nombre: {objData.nombre}</div>
-          <div> DNI: {objData.dni}</div>
-          <div> FN: {objData.fnacimiento}</div>
-          <div> Edad: {objData.edad} años</div>
-          <div> Antecedentes: {objData.antecedentes}</div>
-          <div> Consulta por: {objData.sintomas}</div>
-          <div> Duracion: {objData.duracion}</div>
+          <span><strong>Sala {sala} - </strong></span>
+          <span><strong>{objData.cama}</strong></span>
+          <br></br>
+          <span> <strong>Nombre:</strong> {objData.nombre}</span>
+          <span> <strong>DNI: </strong>{objData.dni}. </span>
+          <span> <strong>FN: </strong> {objData.fnacimiento}</span>
+          <span> <strong>Edad:</strong> {objData.edad} años</span>
+          <div> <strong>Antecedentes:</strong> {objData.antecedentes}</div>
+          <div> <strong>Consulta por:</strong> {objData.sintomas}</div>
+          <span> <strong>Duracion:</strong> {objData.duracion}</span>
         </div>      
     </>
   );
