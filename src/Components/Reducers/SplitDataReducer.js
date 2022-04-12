@@ -1,4 +1,4 @@
-function reduceData(state, action) {
+function reduceFiliatorios(state, action) {
     const split = action.data.texto.split("\n");
     return {
       ...state,
@@ -6,18 +6,27 @@ function reduceData(state, action) {
       fSplit: split,
     };
   }
+
+function reduceSala(state, action) {    
+    return {
+      ...state,
+      sala: action.data.sala
+    };
+  }
   
 function reducer(state, action) {
-    let newState;
-  
+    let newState;  
     switch (action.type) {
       case "init":
-        newState = reduceData(state, action);
+        newState = reduceFiliatorios(state, action);
         return newState;
-      case "change":
-        newState = reduceData(state, action);
+      case "changeFiliatorios":
+        newState = reduceFiliatorios(state, action);
         // console.log(newState);
         return newState;
+      case "changeSala":
+          newState = reduceSala(state, action);      
+          return newState;
       default:
         throw new Error(`${action.type} is not a valid action`);
     }

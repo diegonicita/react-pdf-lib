@@ -7,7 +7,7 @@ const InputData = ({ filiatorios, dispatch }) => {
         className="form-control"
         onChange={(e) =>
           dispatch({
-            type: "change",
+            type: "changeFiliatorios",
             data: { texto: e.target.value },
           })
         }

@@ -4,6 +4,7 @@ import React from "react";
 import { useEffect, useReducer, useState } from "react";
 import Autotexto from "./Components/Autotexto.js/Autotexto";
 import InputData from "./Components/InputData/InputData";
+import InputSala from "./Components/InputData/InputSala";
 import reducer from "./Components/Reducers/SplitDataReducer";
 import loadPDF from "./Components/PDFHelper/PDFHelper";
 import MyNavbar from "./Components/MyNavBar/MyNavBar";
@@ -13,7 +14,7 @@ import imagen from "./spinner.gif";
 function App() {
   // filiatorios => valor del textarea
   // fSplit => (valor del textarea).split("\n")
-  const [{ filiatorios, fSplit }, dispatch] = useReducer(reducer, []);
+  const [{ filiatorios, sala, fSplit }, dispatch] = useReducer(reducer, { filiatorios: "Cama 1", sala: "32", fSplit: ["Cama 1"] });
 
   // isLoading => flag durante el fetching de los archivos PDF del servidor
   const [isLoading, setIsLoading] = useState(false);
@@ -21,7 +22,7 @@ function App() {
 
   useEffect(() => {
     if (isLoading) {
-      const myFetch = async () => await loadPDF(studyId, fSplit);
+      const myFetch = async () => await loadPDF(studyId, fSplit, sala);
       myFetch().then( ()=> {
         setTimeout(() => {
           setIsLoading(false);    
@@ -45,7 +46,12 @@ function App() {
       </div>      
       <div className="row p-2">
         <div className="col col-md-12">
-          <InputData filiatorios={filiatorios} dispatch={dispatch} />
+        <form>
+          <div className="form-group">
+            <InputSala sala={sala} dispatch={dispatch} />
+            <InputData filiatorios={filiatorios} dispatch={dispatch} />
+          </div>
+        </form>
         </div>
       </div>
       <div>
@@ -55,7 +61,7 @@ function App() {
         </div>
       </div>
       <div className="row p-2">
-        <Autotexto split={fSplit} />
+        <Autotexto split={fSplit} sala={sala}/>
       </div>
     </>
   );

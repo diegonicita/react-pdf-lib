@@ -78,7 +78,7 @@ const insertarTextoDividido = (page, texto, pos, charSplitter) => {
   });
 };
 
-const loadPDF = async (studyId, fSplit) => 
+const loadPDF = async (studyId, fSplit, sala) => 
 {   
     const f = await fetch(ep[studyId].url);
     const existingPdfBytes = await f.arrayBuffer();
@@ -90,7 +90,7 @@ const loadPDF = async (studyId, fSplit) =>
     firstPage.setFont(helveticaFont);  
 
     // Bacterilogia //
-    insertarTexto(firstPage, "32", ep[studyId].sala);
+    insertarTexto(firstPage, sala, ep[studyId].sala);
     const splitCama = fSplit[0].split(" ");
     insertarTexto(firstPage, splitCama[1], ep[studyId].cama);
     const splitNameApellido = fSplit[1].split(" ");

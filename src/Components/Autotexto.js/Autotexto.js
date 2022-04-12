@@ -1,4 +1,4 @@
-const Autotexto = ({ split }) => {
+const Autotexto = ({ split, sala }) => {
   const objData = {
     cama: split && split[0] ? split[0] : "",
     nombre: split && split[1] ? split[1] : "",
@@ -13,6 +13,7 @@ const Autotexto = ({ split }) => {
     <>      
         <div className="container-fluid text-left bg-seconday d-100">
           <h4> Vista previa: </h4>
+          <div>Sala: {sala}</div>
           <div>{objData.cama}</div>
           <div> Nombre: {objData.nombre}</div>
           <div> DNI: {objData.dni}</div>
