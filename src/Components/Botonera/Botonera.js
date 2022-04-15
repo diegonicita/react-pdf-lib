@@ -17,7 +17,7 @@ const Botonera = ({downloadFile}) => {
 
     return (
     <div className="row text-center">        
-        <div className="fw-bolder"> Haga click para Descargar un protocolo</div>
+        <div className="fw-bolder"> Descargar un protocolo (PDF) con los datos del paciente </div>
         <div className="col col-12 col-md-12">                    
                 {idsRow1.map( (id, index) => <Boton key={index+100} downloadFile={downloadFile} id={id}></Boton>)}        
         </div>        
