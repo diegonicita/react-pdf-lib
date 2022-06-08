@@ -1,6 +1,8 @@
 # SPA Muñiz 
 ## A Single Page Application that Automatically Fills PDF files.
 
+![Imagen de la app](https://github.com/diegonicita/react-pdf-lib/blob/6a7a7ed72ceede76f07162d744b54686897183d1/public/logo.png)
+
 Aplicacion para rellenar protocolos hospitalarios automaticamente. 
 
 ## Uso:
