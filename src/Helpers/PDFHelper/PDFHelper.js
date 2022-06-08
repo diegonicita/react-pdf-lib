@@ -2,7 +2,7 @@ import { PDFDocument, StandardFonts } from "pdf-lib";
 import download from "downloadjs";
 
 const BASE_END_POINT = "https://diego-test-server.herokuapp.com/";
-//const BASE_END_POINT = "http://localhost:8000/";
+// const BASE_END_POINT = "http://localhost:8000/";
 
 const ep = [
 {
